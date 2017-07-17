@@ -1,5 +1,7 @@
-package com.morsecodeinc;
+package com.morsecodeinc.alpha;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.context.annotation.Bean;
@@ -8,15 +10,13 @@ import org.springframework.context.annotation.Configuration;
 /**
  * Created by morsecode on 7/16/2017.
  */
-@SpringBootConfiguration
+@Configuration
 public class Config {
 
-    @Value("${server.port}")
-    private int port;
+    private static final Logger LOG= LoggerFactory.getLogger(Config.class);
 
-
-    @Bean(name="server.port")
-    public int getPort() {
-        return port;
+    public Config() {
+        LOG.info("Loading Configuration");
     }
+
 }
