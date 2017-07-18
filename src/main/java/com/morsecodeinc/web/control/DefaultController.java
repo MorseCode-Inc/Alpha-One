@@ -11,17 +11,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
  * Created by morsecode on 7/16/2017.
  */
-@EnableAutoConfiguration
-@Component
-@Controller
-@RequestMapping(path="/default")
-@ComponentScan("com.morsecodeinc.web")
+@RestController
+@RequestMapping("/")
 public class DefaultController {
 
     private static final Logger LOG= LoggerFactory.getLogger(DefaultController.class);
@@ -29,7 +27,11 @@ public class DefaultController {
     @Autowired
     private Bootstrap bootstrap;
 
-    @RequestMapping(path = "/index")
+    public DefaultController() {
+        LOG.info("Class loaded.");
+    }
+
+    @RequestMapping(path="/index", method=RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<String> index() {
         LOG.info("HERE, running on port "+ bootstrap.getPort());

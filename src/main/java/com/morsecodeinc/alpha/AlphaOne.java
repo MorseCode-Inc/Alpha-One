@@ -11,9 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
  * Created by morsecode on 7/16/2017.
  */
 @SpringBootApplication
-@EnableAutoConfiguration
-@ComponentScan("com.morsecodeinc")      // load in our controllers
-@ComponentScan("com.morsecodeinc.web.control")      // load in our controllers
+// @ComponentScan("com.morsecodeinc.web.control")      // load in our controllers
 public class AlphaOne {
 
     private static Logger LOG= LoggerFactory.getLogger(AlphaOne.class);

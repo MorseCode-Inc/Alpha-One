@@ -10,9 +10,11 @@
     </appender>
 
     <logger name="org.springframework" level="warn" additivity="false"> <appender-ref ref="STDOUT" /> </logger>
-    <logger name="org.springframework.web" level="info" additivity="false"> <appender-ref ref="STDOUT" /> </logger>
+    <logger name="org.springframework.web" level="debug" additivity="false"> <appender-ref ref="STDOUT" /> </logger>
     <logger name="org.eclipse.jetty.http" level="info" additivity="false"> <appender-ref ref="STDOUT" /> </logger>
     <logger name="org.eclipse.jetty.server" level="info" additivity="false"> <appender-ref ref="STDOUT" /> </logger>
+    <logger name="org.eclipse.jetty.util" level="info" additivity="false"> <appender-ref ref="STDOUT" /> </logger>
+    <logger name="org.eclipse.jetty.io" level="info" additivity="false"> <appender-ref ref="STDOUT" /> </logger>
 
     <root level="debug">
         <appender-ref ref="STDOUT" />
