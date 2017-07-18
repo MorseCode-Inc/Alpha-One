@@ -61,11 +61,13 @@
         </dependency>
 
         <!-- jsp (experimental) -->
+        <!-- stock maven install couldn't find this dependency
         <dependency>
             <groupId>org.mortbay.jasper</groupId>
             <artifactId>jasper-jsp</artifactId>
             <version>8.0.33</version>
         </dependency>
+        -->
 
         <dependency>
             <groupId>mysql</groupId>
