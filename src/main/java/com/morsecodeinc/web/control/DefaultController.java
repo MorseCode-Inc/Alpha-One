@@ -34,7 +34,7 @@ public class DefaultController {
     @RequestMapping(path="/index", method=RequestMethod.GET)
     @ResponseBody
     public ResponseEntity<String> index() {
-        LOG.info("HERE, running on port "+ bootstrap.getPort());
+        LOG.info("HERE, i'm running...");
         return new ResponseEntity<String>("hello", HttpStatus.OK);
     }
 
