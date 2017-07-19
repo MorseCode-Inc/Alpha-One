@@ -42,7 +42,6 @@ public class Hooks implements ApplicationContextAware, HandlerInterceptor {
     public void setApplicationContext(ApplicationContext context) throws BeansException {
         for (String name : context.getBeanDefinitionNames()) {
             Object bean= context.getBean(name);
-            LOG.info("Found registered bean: ["+ bean.getClass() +"] "+ bean);
         }
         LOG.info("SET CONTEXT: "+ context);
     }
