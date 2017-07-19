@@ -28,27 +28,27 @@ public class AlphaOne implements SpringApplicationRunListener {
 
     @Override
     public void starting() {
-        LOG.info("starting");
+        LOG.info("=--- starting ---=");
     }
 
     @Override
-    public void contextLoaded(ConfigurableApplicationContext configurableApplicationContext) {
-        LOG.info("context loaded");
+    public void contextLoaded(ConfigurableApplicationContext context) {
+        LOG.info("=--- context loaded ---=");
     }
 
     @Override
-    public void contextPrepared(ConfigurableApplicationContext configurableApplicationContext) {
-        LOG.info("context prepared");
+    public void contextPrepared(ConfigurableApplicationContext context) {
+        LOG.info("=--- context prepared ---=");
     }
 
     @Override
-    public void environmentPrepared(ConfigurableEnvironment configurableEnvironment) {
-        LOG.info("environment prepared");
+    public void environmentPrepared(ConfigurableEnvironment env) {
+        LOG.info("=--- environment prepared ---=");
     }
 
     @Override
-    public void finished(ConfigurableApplicationContext configurableApplicationContext, Throwable throwable) {
-        LOG.info("finished");
+    public void finished(ConfigurableApplicationContext context, Throwable throwable) {
+        LOG.info(" =--- finished ---=");
     }
 
 }
