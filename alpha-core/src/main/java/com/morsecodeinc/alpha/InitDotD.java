@@ -1,15 +1,15 @@
 package com.morsecodeinc.alpha;
 
+import de.neuland.jade4j.spring.template.SpringTemplateLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerInitializedEvent;
 import org.springframework.context.*;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.method.HandlerMethod;
-import org.springframework.web.servlet.handler.AbstractHandlerMapping;
 import org.springframework.web.servlet.handler.AbstractHandlerMethodMapping;
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 
@@ -26,11 +26,12 @@ public class InitDotD implements ApplicationContextInitializer, ApplicationConte
 
     private Logger LOG= LoggerFactory.getLogger(InitDotD.class);
 
+    @Autowired
+    SpringTemplateLoader jade;
+
     @Override
     public void initialize(ConfigurableApplicationContext context) {
         LOG.info("INITIALIZE: "+ context);
-
-
     }
     
 
@@ -51,6 +52,7 @@ public class InitDotD implements ApplicationContextInitializer, ApplicationConte
                     }
             );
         }
+
     }
 
     @Override

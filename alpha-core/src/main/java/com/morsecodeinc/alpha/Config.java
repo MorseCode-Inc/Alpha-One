@@ -36,27 +36,6 @@ public class Config extends WebMvcConfigurerAdapter {
         LOG.info("Loading Configuration");
     }
 
-    @Bean(name="jade4jTemplateLoader")
-    @Primary
-    public SpringTemplateLoader jade4jTemplateLoader() {
-        SpringTemplateLoader jade= new de.neuland.jade4j.spring.template.SpringTemplateLoader() {
-
-            @Override
-            public Reader getReader(String name) throws IOException {
-                try {
-                    return super.getReader(name);
-                } catch (IOException iox) {
-                    LOG.error("Failed to get reader for template: "+ iox.getMessage(), iox);
-                    throw iox;
-                }
-            }
-
-        };
-
-        jade.setBasePath("src/main/resources/templates");
-        return jade;
-    }
-
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(csrfTokenAddingInterceptor());
