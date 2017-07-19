@@ -21,7 +21,7 @@ import org.springframework.core.env.ConfigurableEnvironment;
 ,"com.morsecodeinc.web.helper"
 })
 @SpringBootApplication
-public class AlphaOne implements SpringApplicationRunListener {
+public class AlphaOne {
 
     private static Logger LOG= LoggerFactory.getLogger(AlphaOne.class);
 
@@ -29,31 +29,6 @@ public class AlphaOne implements SpringApplicationRunListener {
         LOG.info("BOOTSTRAP WEBSERVER");
         SpringApplication.run(AlphaOne.class, args);
         LOG.info("STARTUP COMPLETE");
-    }
-
-    @Override
-    public void starting() {
-        LOG.info("=--- starting ---=");
-    }
-
-    @Override
-    public void contextLoaded(ConfigurableApplicationContext context) {
-        LOG.info("=--- context loaded ---=");
-    }
-
-    @Override
-    public void contextPrepared(ConfigurableApplicationContext context) {
-        LOG.info("=--- context prepared ---=");
-    }
-
-    @Override
-    public void environmentPrepared(ConfigurableEnvironment env) {
-        LOG.info("=--- environment prepared ---=");
-    }
-
-    @Override
-    public void finished(ConfigurableApplicationContext context, Throwable throwable) {
-        LOG.info(" =--- finished ---=");
     }
 
 }
