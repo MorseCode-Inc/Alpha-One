@@ -1,4 +1,4 @@
-package com.morsecodeinc;
+package com.morsecodeinc.web.service;
 
 import org.springframework.stereotype.Service;
 
