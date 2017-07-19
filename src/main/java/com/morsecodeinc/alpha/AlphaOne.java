@@ -13,10 +13,14 @@ import org.springframework.web.servlet.HandlerExecutionChain;
 /**
  * Created by morsecode on 7/16/2017.
  */
-@ComponentScan({"com.morsecodeinc.web.resource"})
-@ComponentScan({"com.morsecodeinc.web.service"})
-@ComponentScan({"com.morsecodeinc.web.control"})
-@ComponentScan({"com.morsecodeinc.web.helper"})
+@ComponentScan(
+{"com.morsecodeinc.alpha"
+,"com.morsecodeinc.web.resource"
+,"com.morsecodeinc.web.service"
+,"com.morsecodeinc.web.control"
+,"com.morsecodeinc.web.security"
+,"com.morsecodeinc.web.helper"
+})
 @SpringBootApplication
 public class AlphaOne implements SpringApplicationRunListener {
 
