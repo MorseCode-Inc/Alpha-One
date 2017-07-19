@@ -26,9 +26,8 @@ public class AlphaOne {
     private static Logger LOG= LoggerFactory.getLogger(AlphaOne.class);
 
     public static void main(String[] args) {
-        LOG.info("BOOTSTRAP WEBSERVER");
         SpringApplication.run(AlphaOne.class, args);
-        LOG.info("STARTUP COMPLETE");
+        LOG.info("READY");
     }
 
 }

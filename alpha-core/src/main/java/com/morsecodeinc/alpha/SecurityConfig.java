@@ -18,12 +18,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
+            .antMatchers("/", "/js/**", "/css/**", "/img/**", "/favicon.ico").permitAll()
             // for now
             .antMatchers(".*").permitAll()
+                .and()
+                .csrf();
         ;
         /* future:
             // white list of public pages
-            .antMatchers("/", "/signup", "/js/**", "/css/**", "/terms", "/privacy", "/favicon.ico").permitAll()
+            .antMatchers("/signup", "/terms", "/privacy").permitAll()
             .anyRequest().authenticated()
             .and()
             .formLogin()

@@ -4,8 +4,7 @@ import com.morsecodeinc.alpha.InitDotD;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,20 +13,19 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * Created by morsecode on 7/16/2017.
  */
-@RestController
+@Controller
 @RequestMapping("/")
-public class DefaultController {
+public class JadeController {
 
-    private static final Logger LOG= LoggerFactory.getLogger(DefaultController.class);
+    private static final Logger LOG= LoggerFactory.getLogger(JadeController.class);
 
     @Autowired
     private InitDotD bootstrap;
 
-    public DefaultController() {
+    public JadeController() {
         LOG.info("Class loaded.");
     }
 
-    /*
     @RequestMapping(path="/", method=RequestMethod.GET)
     public String index(Model model) {
         LOG.info("HERE, i'm running...");
@@ -39,6 +37,5 @@ public class DefaultController {
         LOG.info("HERE, i'm running...");
         return "page";
     }
-    */
 
 }
