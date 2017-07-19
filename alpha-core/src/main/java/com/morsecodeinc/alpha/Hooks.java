@@ -3,7 +3,6 @@ package com.morsecodeinc.alpha;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
-import org.springframework.boot.context.embedded.EmbeddedServletContainerInitializedEvent;
 import org.springframework.context.*;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;

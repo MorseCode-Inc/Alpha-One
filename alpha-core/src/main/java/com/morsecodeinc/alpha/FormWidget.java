@@ -1,4 +1,4 @@
-package com.morsecodeinc.web.model;
+package com.morsecodeinc.alpha;
 
 /**
  * Created by morsecode on 7/16/2017.
