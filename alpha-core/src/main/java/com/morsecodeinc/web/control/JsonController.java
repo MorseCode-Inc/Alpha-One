@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 /**
@@ -42,15 +43,17 @@ public class JsonController {
     }
 
     @RequestMapping(path="/page", method=RequestMethod.GET)
-    public ResponseEntity<JsonNode> page(Model model) {
+    public ResponseEntity<JsonNode> page(Model model, HttpServletRequest httpReq) {
 
         JsonPayload payload= new JsonPayload();
 
         // set whatever data on the payload we need to
-        payload.set("model", model.asMap());
+        model.addAttribute("test", true);
+        model.addAttribute("client", httpReq.getRemoteAddr());
+
+        payload.merge(model.asMap());
 
         return payload.asResponse(HttpStatus.OK);
-
 
     }
 

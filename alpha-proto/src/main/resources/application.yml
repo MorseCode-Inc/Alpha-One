@@ -1,0 +1,13 @@
+spring:
+    application:
+        name: Alpha-One
+
+logging:
+    level:
+        org.springframework.web: DEBUG
+
+server:
+    error:
+        whitelabel:
+            enabled=false
+

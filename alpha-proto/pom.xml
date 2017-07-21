@@ -8,9 +8,95 @@
     <artifactId>alpha-proto</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-parent</artifactId>
+        <version>1.5.4.RELEASE</version>
+    </parent>
+
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+
     </properties>
 
+    <dependencies>
+
+        <!--
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jetty</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.domingosuarez.boot</groupId>
+            <artifactId>spring-boot-starter-jade4j</artifactId>
+            <version>0.3.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+        -->
+
+
+        <dependency>
+            <groupId>com.morsecodeinc</groupId>
+            <artifactId>alpha-core</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <!-- jsp (experimental) -->
+        <!-- stock maven install couldn't find this dependency
+        <dependency>
+            <groupId>org.mortbay.jasper</groupId>
+            <artifactId>jasper-jsp</artifactId>
+            <version>8.0.33</version>
+        </dependency>
+        -->
+
+        <!--
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        -->
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+
+        <!--
+        <dependency>
+            <groupId>inc.morsecode</groupId>
+            <artifactId>json-lite</artifactId>
+            <version>0.0.7-SNAPSHOT</version>
+        </dependency>
+        -->
+
+        <!-- test dependencies -->
+        <!--
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        -->
+    </dependencies>
+    
 </project>

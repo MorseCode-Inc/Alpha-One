@@ -23,12 +23,6 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <!--
-    <modules>
-        <module>../json-lite</module>
-    </modules>
-    -->
-
     <dependencies>
 
         <dependency>

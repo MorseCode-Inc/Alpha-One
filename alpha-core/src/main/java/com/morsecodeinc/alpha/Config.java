@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -20,6 +21,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Created by morsecode on 7/16/2017.
  */
+@ComponentScan(
+{"com.morsecodeinc.alpha"
+,"com.morsecodeinc.web.resource"
+,"com.morsecodeinc.web.service"
+,"com.morsecodeinc.web.control"
+,"com.morsecodeinc.web.security"
+,"com.morsecodeinc.web.helper"
+})
 @Configuration
 @EnableAutoConfiguration
 public class Config extends WebMvcConfigurerAdapter {

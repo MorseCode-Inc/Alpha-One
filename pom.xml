@@ -4,7 +4,7 @@
     <groupId>com.com.morsecodeinc</groupId>
     <artifactId>Alpha-One</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
 
     <name>Alpha-One</name>
     <description>Alpha-One</description>

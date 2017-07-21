@@ -7,6 +7,7 @@ import inc.morsecode.json.JsonObject;
 import inc.morsecode.json.JsonValue;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 
 import java.io.IOException;
 
@@ -22,6 +23,11 @@ public class JsonPayload extends JsonObject {
         this.json= this;
         this.header= new JsonObject();
         json.set("header", header);
+    }
+
+    public JsonPayload(Model model) {
+        this();
+        merge(model.asMap());
     }
 
     public JsonObject getHeader() { return header; }
@@ -75,4 +81,15 @@ public class JsonPayload extends JsonObject {
             return null;
         }
     }
+
+
+    /*
+     * Some convenience methods
+     */
+    public ResponseEntity<JsonNode> asResponse200() { return asResponse(HttpStatus.OK); }
+    public ResponseEntity<JsonNode> asResponse400() { return asResponse(HttpStatus.BAD_REQUEST); }
+    public ResponseEntity<JsonNode> asResponse401() { return asResponse(HttpStatus.UNAUTHORIZED); }
+    public ResponseEntity<JsonNode> asResponse404() { return asResponse(HttpStatus.NOT_FOUND); }
+    public ResponseEntity<JsonNode> asResponse500() { return asResponse(HttpStatus.INTERNAL_SERVER_ERROR); }
+
 }
