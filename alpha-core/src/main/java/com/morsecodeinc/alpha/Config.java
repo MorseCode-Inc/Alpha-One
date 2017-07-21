@@ -5,11 +5,9 @@ import de.neuland.jade4j.spring.template.SpringTemplateLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -18,8 +16,6 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.io.Reader;
 
 /**
  * Created by morsecode on 7/16/2017.
@@ -32,9 +28,6 @@ public class Config extends WebMvcConfigurerAdapter {
 
     @Autowired
     SpringTemplateLoader jade;
-    public Config() {
-        LOG.info("Loading Configuration");
-    }
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
