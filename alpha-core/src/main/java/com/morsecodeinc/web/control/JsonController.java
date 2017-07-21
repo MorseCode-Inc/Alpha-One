@@ -3,6 +3,7 @@ package com.morsecodeinc.web.control;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.morsecodeinc.alpha.InitDotD;
+import com.morsecodeinc.alpha.api.JsonPayload;
 import org.eclipse.jetty.server.session.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,12 +39,13 @@ public class JsonController {
     public ResponseEntity<JsonNode> index(Model model, Session session) throws IOException {
         LOG.info("HERE, i'm running...");
         ObjectMapper mapper= new ObjectMapper();
-        try {
-            JsonNode json = mapper.readTree("{\"name\":\"alpha-one\"}");
-            return new ResponseEntity<JsonNode>(json, HttpStatus.OK);
-        } catch (IOException iox) {
-            throw iox;
-        }
+
+        JsonPayload payload= new JsonPayload();
+
+        // set whatever data on the payload we need to
+        payload.set("model", model.asMap());
+
+        return payload.asResponse(HttpStatus.OK);
     }
 
     @RequestMapping(path="/page", method=RequestMethod.GET)
