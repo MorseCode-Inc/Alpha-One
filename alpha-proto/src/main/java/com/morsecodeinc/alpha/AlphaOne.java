@@ -4,10 +4,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * Created by morsecode on 7/16/2017.
  */
+@ComponentScan({"com.morsecodeinc.alpha"})
 @SpringBootApplication
 public class AlphaOne {
 

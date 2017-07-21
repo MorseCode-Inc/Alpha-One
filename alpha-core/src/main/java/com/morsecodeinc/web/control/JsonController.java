@@ -61,8 +61,11 @@ public class JsonController {
 
     @ExceptionHandler({Throwable.class})
     @RequestMapping(headers = {"Content-Type:application/json"})
-    public ResponseEntity<JsonNode> handleAny(HttpRequest request, Throwable error) {
+    public ResponseEntity<JsonNode> handleAny(HttpServletRequest request, Throwable error) {
         JsonPayload payload= new JsonPayload();
+
+        payload.set("error_message", error.getMessage());
+        payload.set("error", error.getClass().getSimpleName());
 
         return payload.asResponse(HttpStatus.INTERNAL_SERVER_ERROR);
     }

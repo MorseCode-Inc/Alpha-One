@@ -21,8 +21,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .antMatchers("/", "/js/**", "/css/**", "/img/**", "/favicon.ico").permitAll()
             // for now
             .antMatchers(".*").permitAll()
-                .and()
-                .csrf();
+                //.and()
+                //.csrf();
         ;
         /* future:
             // white list of public pages
