@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 
 import java.io.IOException;
+import java.util.Map;
 
 /**
  * Created by morsecode on 7/20/2017.
@@ -38,14 +39,14 @@ public class JsonPayload extends JsonObject {
      * notice the chaining that would happen, returning the reference
      * to the header instead of this.
      */
-    public JsonStructure setHeader(String name, Long value) { return header.set(name, value); }
-    public JsonStructure setHeader(String name, Short value) { return header.set(name, value); }
-    public JsonStructure setHeader(String name, Double value) { return header.set(name, value); }
-    public JsonStructure setHeader(String name, String value) { return header.set(name, value); }
-    public JsonStructure setHeader(String name, Boolean value) { return header.set(name, value); }
-    public JsonStructure setHeader(String name, Integer value) { return header.set(name, value); }
-    public JsonStructure setHeader(String name, TypedJsonArray value) { return header.set(name, value); }
-    public JsonStructure setHeader(String name, JsonValue value) { return header.set(name, value); }
+    public JsonStructure setHeader(String name, Long value) { header.set(name, value); return this; }
+    public JsonStructure setHeader(String name, Short value) { header.set(name, value); return this; }
+    public JsonStructure setHeader(String name, Double value) { header.set(name, value); return this; }
+    public JsonStructure setHeader(String name, String value) { header.set(name, value); return this; }
+    public JsonStructure setHeader(String name, Boolean value) { header.set(name, value); return this; }
+    public JsonStructure setHeader(String name, Integer value) { header.set(name, value); return this; }
+    public JsonStructure setHeader(String name, TypedJsonArray value) { header.set(name, value); return this; }
+    public JsonStructure setHeader(String name, JsonValue value) { header.set(name, value); return this; }
 
 
     /**
@@ -83,10 +84,14 @@ public class JsonPayload extends JsonObject {
         }
     }
 
+    public JsonPayload with(Map<String, Object> map) {
+        merge(map);
+        return this;
+    }
 
     /*
-     * Some convenience methods
-     */
+         * Some convenience methods
+         */
     public ResponseEntity<JsonNode> asResponse200() { return asResponse(HttpStatus.OK); }
     public ResponseEntity<JsonNode> asResponse400() { return asResponse(HttpStatus.BAD_REQUEST); }
     public ResponseEntity<JsonNode> asResponse401() { return asResponse(HttpStatus.UNAUTHORIZED); }

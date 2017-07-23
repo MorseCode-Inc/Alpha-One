@@ -2,7 +2,9 @@ package com.morsecodeinc.web.control;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonArrayFormatVisitor;
 import com.morsecodeinc.alpha.api.JsonPayload;
+import inc.morsecode.json.JsonObject;
 import org.eclipse.jetty.server.session.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -57,15 +59,33 @@ public class JsonController {
 
     }
 
+    @RequestMapping(path="/env", method=RequestMethod.GET)
+    public ResponseEntity<JsonNode> env(Model model, Session session) throws IOException {
+        ObjectMapper mapper= new ObjectMapper();
+
+        JsonPayload payload= new JsonPayload();
+
+        model.addAttribute("env", System.getProperties());
+
+
+        // set whatever data on the payload we need to, turn it in to a response and send it.
+        return payload.with(model.asMap()).asResponse(HttpStatus.OK);
+    }
 
 
     @ExceptionHandler({Throwable.class})
     @RequestMapping(headers = {"Content-Type:application/json"})
     public ResponseEntity<JsonNode> handleAny(HttpServletRequest request, Throwable error) {
         JsonPayload payload= new JsonPayload();
+        JsonObject stacktrace= new JsonObject();
+
+        
 
         payload.set("error_message", error.getMessage());
         payload.set("error", error.getClass().getSimpleName());
+
+
+        payload.set("stacktrace", stacktrace);
 
         return payload.asResponse(HttpStatus.INTERNAL_SERVER_ERROR);
     }
