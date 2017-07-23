@@ -2,9 +2,10 @@ package com.morsecodeinc.alpha.api;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import inc.morsecode.json.JsonArray;
+import inc.morsecode.json.TypedJsonArray;
 import inc.morsecode.json.JsonObject;
 import inc.morsecode.json.JsonValue;
+import inc.morsecode.spec.json.JsonStructure;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
@@ -16,8 +17,8 @@ import java.io.IOException;
  */
 public class JsonPayload extends JsonObject {
 
-    private JsonObject json;
-    private JsonObject header;
+    private JsonStructure json;
+    private JsonStructure header;
 
     public JsonPayload() {
         this.json= this;
@@ -30,21 +31,21 @@ public class JsonPayload extends JsonObject {
         merge(model.asMap());
     }
 
-    public JsonObject getHeader() { return header; }
+    public JsonStructure getHeader() { return header; }
 
     /*
      * Seems like it would be handy to quickly set header data
      * notice the chaining that would happen, returning the reference
      * to the header instead of this.
      */
-    public JsonObject setHeader(String name, Long value) { return header.set(name, value); }
-    public JsonObject setHeader(String name, Short value) { return header.set(name, value); }
-    public JsonObject setHeader(String name, Double value) { return header.set(name, value); }
-    public JsonObject setHeader(String name, String value) { return header.set(name, value); }
-    public JsonObject setHeader(String name, Boolean value) { return header.set(name, value); }
-    public JsonObject setHeader(String name, Integer value) { return header.set(name, value); }
-    public JsonObject setHeader(String name, JsonArray value) { return header.set(name, value); }
-    public JsonObject setHeader(String name, JsonValue value) { return header.set(name, value); }
+    public JsonStructure setHeader(String name, Long value) { return header.set(name, value); }
+    public JsonStructure setHeader(String name, Short value) { return header.set(name, value); }
+    public JsonStructure setHeader(String name, Double value) { return header.set(name, value); }
+    public JsonStructure setHeader(String name, String value) { return header.set(name, value); }
+    public JsonStructure setHeader(String name, Boolean value) { return header.set(name, value); }
+    public JsonStructure setHeader(String name, Integer value) { return header.set(name, value); }
+    public JsonStructure setHeader(String name, TypedJsonArray value) { return header.set(name, value); }
+    public JsonStructure setHeader(String name, JsonValue value) { return header.set(name, value); }
 
 
     /**
