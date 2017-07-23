@@ -2,16 +2,16 @@ package com.morsecodeinc.alpha.api;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import inc.morsecode.json.TypedJsonArray;
-import inc.morsecode.json.JsonObject;
-import inc.morsecode.json.JsonValue;
+import inc.morsecode.json.*;
 import inc.morsecode.spec.json.JsonStructure;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * Created by morsecode on 7/20/2017.
@@ -89,9 +89,16 @@ public class JsonPayload extends JsonObject {
         return this;
     }
 
+    public JsonPayload with(Throwable x) {
+        this.set("error", new JsonStacktrace(x));
+        return this;
+    }
+
+
+
     /*
-         * Some convenience methods
-         */
+    * Some convenience methods
+    */
     public ResponseEntity<JsonNode> asResponse200() { return asResponse(HttpStatus.OK); }
     public ResponseEntity<JsonNode> asResponse400() { return asResponse(HttpStatus.BAD_REQUEST); }
     public ResponseEntity<JsonNode> asResponse401() { return asResponse(HttpStatus.UNAUTHORIZED); }

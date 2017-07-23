@@ -26,8 +26,6 @@ public class InitDotD implements ApplicationContextInitializer, ApplicationConte
 
     private Logger LOG= LoggerFactory.getLogger(InitDotD.class);
 
-    @Autowired
-    SpringTemplateLoader jade;
 
     @Override
     public void initialize(ConfigurableApplicationContext context) {

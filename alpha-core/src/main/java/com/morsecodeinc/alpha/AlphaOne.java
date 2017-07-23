@@ -12,17 +12,15 @@ import org.springframework.core.env.ConfigurableEnvironment;
 /**
  * Created by morsecode on 7/16/2017.
  */
-//@SpringBootApplication
+@SpringBootApplication
 public class AlphaOne {
 
     private static Logger LOG= LoggerFactory.getLogger(AlphaOne.class);
 
-    /*
     public static void main(String[] args) {
         SpringApplication.run(AlphaOne.class, args);
         LOG.info("READY");
     }
-    */
 
 }
 

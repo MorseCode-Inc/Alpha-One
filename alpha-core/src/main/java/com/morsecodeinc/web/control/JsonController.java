@@ -4,7 +4,9 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonArrayFormatVisitor;
 import com.morsecodeinc.alpha.api.JsonPayload;
+import inc.morsecode.json.JsonArray;
 import inc.morsecode.json.JsonObject;
+import inc.morsecode.json.JsonPrimitive;
 import org.eclipse.jetty.server.session.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,6 +18,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 /**
  * Created by morsecode on 7/16/2017.
@@ -53,6 +58,12 @@ public class JsonController {
         model.addAttribute("test", true);
         model.addAttribute("client", httpReq.getRemoteAddr());
 
+        try {
+            throw new RuntimeException("EHERE");
+        } catch (Exception x) {
+            payload.with(x);
+        }
+
         payload.merge(model.asMap());
 
         return payload.asResponse(HttpStatus.OK);
@@ -77,9 +88,12 @@ public class JsonController {
     @RequestMapping(headers = {"Content-Type:application/json"})
     public ResponseEntity<JsonNode> handleAny(HttpServletRequest request, Throwable error) {
         JsonPayload payload= new JsonPayload();
-        JsonObject stacktrace= new JsonObject();
+        JsonArray stacktrace= new JsonArray();
 
-        
+        for (StackTraceElement ste : error.getStackTrace()) {
+            stacktrace.add(ste.getClassName() +":"+ ste.getLineNumber() +" "+ ste.toString());
+        }
+
 
         payload.set("error_message", error.getMessage());
         payload.set("error", error.getClass().getSimpleName());
