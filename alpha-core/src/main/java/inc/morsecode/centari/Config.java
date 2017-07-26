@@ -1,5 +1,6 @@
 package inc.morsecode.centari;
 
+import inc.morsecode.web.resource.FileFormStore;
 import inc.morsecode.web.security.CsrfToken;
 import de.neuland.jade4j.spring.template.SpringTemplateLoader;
 import org.slf4j.Logger;
@@ -17,6 +18,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.nio.file.FileStore;
 
 /**
  * Created by morsecode on 7/16/2017.
@@ -36,7 +38,10 @@ public class Config extends WebMvcConfigurerAdapter {
     private static final Logger LOG= LoggerFactory.getLogger(Config.class);
 
     @Autowired
-    SpringTemplateLoader jade;
+    private SpringTemplateLoader jade;
+
+    @Autowired
+    private FileFormStore formStore;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
@@ -57,4 +62,8 @@ public class Config extends WebMvcConfigurerAdapter {
         };
     }
 
+    @Bean
+    public FormStore formStore() {
+        return formStore;
+    }
 }
