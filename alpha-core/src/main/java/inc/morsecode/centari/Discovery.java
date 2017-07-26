@@ -20,9 +20,9 @@ import java.util.function.Consumer;
  */
 @Component
 @EnableAutoConfiguration
-public class InitDotD implements ApplicationContextInitializer, ApplicationContextAware, ApplicationListener<EmbeddedServletContainerInitializedEvent> {
+public class Discovery implements ApplicationContextInitializer, ApplicationContextAware, ApplicationListener<EmbeddedServletContainerInitializedEvent> {
 
-    private Logger LOG= LoggerFactory.getLogger(InitDotD.class);
+    private Logger LOG= LoggerFactory.getLogger(Discovery.class);
 
 
     @Override
@@ -42,7 +42,7 @@ public class InitDotD implements ApplicationContextInitializer, ApplicationConte
                     new Consumer<Map.Entry<RequestMappingInfo, HandlerMethod>>() {
                         @Override
                         public void accept(Map.Entry<RequestMappingInfo, HandlerMethod> entry) {
-                            LOG.info("Endpoint Discovered: "+ entry.getValue());
+                            LOG.info("Found @RequestMapping Endpoint: "+ entry.getValue());
                             // TODO: collect all of the exposed endpoints
                         }
                     }
