@@ -1,10 +1,10 @@
 !!! 5
 html
   head
-    include head
+    include head.jade
     block head
   body
-    include main_navbar
+    include navigation.jade
     .container
       .page-header
         .clearfix
@@ -14,4 +14,4 @@ html
         .container
           block body
 
-    include footer
+    include footer.jade
