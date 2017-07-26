@@ -1,6 +1,6 @@
 package inc.morsecode.web.control;
 
-import inc.morsecode.centari.InitDotD;
+import inc.morsecode.centari.Discovery;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ public class JadeController {
     private static final Logger LOG= LoggerFactory.getLogger(JadeController.class);
 
     @Autowired
-    private InitDotD bootstrap;
+    private Discovery bootstrap;
 
     public JadeController() {
         LOG.info("Class loaded.");
@@ -27,7 +27,7 @@ public class JadeController {
 
     @RequestMapping(path="/", method=RequestMethod.GET)
     public String index(Model model) {
-        return "index";
+        return "index.jade";
     }
 
     @RequestMapping(path="/page", method=RequestMethod.GET)
