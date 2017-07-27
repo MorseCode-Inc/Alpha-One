@@ -23,7 +23,11 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
+
+
+
     <dependencies>
+
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -57,6 +61,20 @@
             <artifactId>spring-context</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>de.neuland</groupId>
+            <artifactId>jade4j-coffeescript-filter</artifactId>
+            <version>0.2.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>rhino</groupId>
+            <artifactId>js</artifactId>
+            <version>1.7R2</version>
+            <type>jar</type>
+            <scope>compile</scope>
+        </dependency>
+
         <!-- jsp (experimental) -->
         <!-- stock maven install couldn't find this dependency
         <dependency>
@@ -71,13 +89,20 @@
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
 
+
+        <dependency>
+            <groupId>org.jcoffeescript</groupId>
+            <artifactId>jcoffeescript</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
         <dependency>
             <groupId>inc.morsecode</groupId>
             <artifactId>json-lite</artifactId>
             <version>0.0.7-SNAPSHOT</version>
         </dependency>
+
+
 
         <!-- test dependencies -->
         <dependency>
@@ -107,6 +132,10 @@
         <repository>
             <id>spring-releases</id>
             <url>https://repo.spring.io/libs-release</url>
+        </repository>
+        <repository>
+            <id>jade4j-coffeescript-filter-releases</id>
+            <url>https://raw.github.com/neuland/jade4j-coffeescript-filter/master/releases</url>
         </repository>
     </repositories>
     <pluginRepositories>
