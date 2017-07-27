@@ -1,3 +1,6 @@
 [submodule "json-lite"]
 	path = json-lite
 	url = git@github.com:MorseCode-Inc/json-lite
+[submodule "jcoffeescript"]
+	path = jcoffeescript
+	url = git@github.com:MorseCode-Inc/jcoffeescript
