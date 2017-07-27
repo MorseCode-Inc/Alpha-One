@@ -51,22 +51,34 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>com.domingosuarez.boot</groupId>
             <artifactId>spring-boot-starter-jade4j</artifactId>
             <version>0.3.1</version>
         </dependency>
 
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
+            <groupId>de.neuland-bfi</groupId>
+            <artifactId>spring-jade4j</artifactId>
+            <version>0.4.2</version>
         </dependency>
-
         <dependency>
             <groupId>de.neuland</groupId>
             <artifactId>jade4j-coffeescript-filter</artifactId>
             <version>0.2.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>github.yeungda</groupId>
+                    <artifactId>jcoffeescript</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
+        <!--
         <dependency>
             <groupId>rhino</groupId>
             <artifactId>js</artifactId>
@@ -74,6 +86,7 @@
             <type>jar</type>
             <scope>compile</scope>
         </dependency>
+        -->
 
         <!-- jsp (experimental) -->
         <!-- stock maven install couldn't find this dependency
