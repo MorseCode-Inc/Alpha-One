@@ -1,6 +1,7 @@
 package inc.morsecode.web.helper;
 
-import com.domingosuarez.boot.autoconfigure.jade4j.JadeHelper;
+// import com.domingosuarez.boot.autoconfigure.jade4j.JadeHelper;
+
 
 import java.text.NumberFormat;
 
@@ -14,7 +15,7 @@ import java.text.NumberFormat;
  *
  * Created by morsecode on 7/18/2017.
  */
-@JadeHelper
+//@JadeHelper
 public class Util {
 
     private static NumberFormat money= NumberFormat.getCurrencyInstance();

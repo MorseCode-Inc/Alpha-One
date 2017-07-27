@@ -1,6 +1,9 @@
 package inc.morsecode.web.helper;
 
-import com.domingosuarez.boot.autoconfigure.jade4j.JadeHelper;
+
+import java.util.ArrayList;
+//import com.domingosuarez.boot.autoconfigure.jade4j.JadeHelper;
+
 
 import java.util.ArrayList;
 
@@ -11,7 +14,7 @@ import java.util.ArrayList;
  * things like javescript, css, and other resources
  * the html page will need
  */
-@JadeHelper
+//@JadeHelper
 public class HtmlHead {
 
     private ArrayList<String> jsIncludes= new ArrayList<>();

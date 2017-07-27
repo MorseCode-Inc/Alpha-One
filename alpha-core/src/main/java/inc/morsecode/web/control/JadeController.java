@@ -17,13 +17,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class JadeController {
 
     private static final Logger LOG= LoggerFactory.getLogger(JadeController.class);
+    static { LOG.info("Class loaded."); }
 
     @Autowired
     private Discovery bootstrap;
-
-    public JadeController() {
-        LOG.info("Class loaded.");
-    }
 
     @RequestMapping(path="/", method=RequestMethod.GET)
     public String index(Model model) {
