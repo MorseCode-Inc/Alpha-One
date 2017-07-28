@@ -1,0 +1,17 @@
+form(name="login", action="POST", target="/welcome-login")
+    table
+        tr
+            td Username:
+            td
+                include fields/username
+        tr
+            td Password:
+            td
+                include fields/password
+        tr
+            td
+            td
+                input(type="submit", name="login", value="login")
+        tr
+            td
+            td

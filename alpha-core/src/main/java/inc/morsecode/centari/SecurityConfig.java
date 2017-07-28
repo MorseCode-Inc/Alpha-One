@@ -1,5 +1,6 @@
 package inc.morsecode.centari;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableWebMvc
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -21,24 +23,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .antMatchers("/", "/js/**", "/css/**", "/img/**", "/favicon.ico").permitAll()
             // for now
             .antMatchers(".*").permitAll()
-                //.and()
-                //.csrf();
-        ;
-        /* future:
             // white list of public pages
             .antMatchers("/signup", "/terms", "/privacy").permitAll()
             .anyRequest().authenticated()
             .and()
             .formLogin()
-            .loginPage("/login")
+            .loginPage("/welcome-login")
             .permitAll()
             .and()
             .logout()
-            .logoutUrl("/logout")
+            .logoutUrl("/goodbye")
             .permitAll()
             .and()
             .csrf();
-        */
     }
 
 
