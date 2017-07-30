@@ -1,0 +1,10 @@
+// NCR Club Flight Card
+mixin first_last_name
+    include fields/flight-card/first_last_name
+
+form
+    table.table
+        tr
+            td Name
+            td
+                +first_last_name
