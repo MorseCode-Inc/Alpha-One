@@ -25,6 +25,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .antMatchers(".*").permitAll()
             // white list of public pages
             .antMatchers("/signup", "/terms", "/privacy").permitAll()
+            .antMatchers("/goodbye").permitAll()
             .anyRequest().authenticated()
             .and()
             .formLogin()
