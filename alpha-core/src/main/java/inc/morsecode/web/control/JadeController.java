@@ -22,12 +22,14 @@ public class JadeController {
     @Autowired
     private Discovery bootstrap;
 
-    @RequestMapping(path="/", method=RequestMethod.GET)
+    @RequestMapping(method=RequestMethod.GET,
+            path="/")
     public String index(Model model) {
         return "index.jade";
     }
 
-    @RequestMapping(path="/page", method=RequestMethod.GET)
+    @RequestMapping(method=RequestMethod.GET,
+            path="/page")
     public String page(Model model) {
         return "page";
     }
