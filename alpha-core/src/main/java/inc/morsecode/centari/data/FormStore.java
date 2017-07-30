@@ -1,4 +1,4 @@
-package inc.morsecode.centari;
+package inc.morsecode.centari.data;
 
 import inc.morsecode.web.model.form.FormElement;
 import inc.morsecode.web.model.form.WebForm;
