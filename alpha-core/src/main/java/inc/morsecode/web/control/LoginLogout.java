@@ -1,4 +1,4 @@
-package inc.morsecode.centari;
+package inc.morsecode.web.control;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
