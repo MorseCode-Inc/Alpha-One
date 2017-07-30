@@ -1,6 +1,6 @@
 package inc.morsecode.web.resource;
 
-import inc.morsecode.centari.FormStore;
+import inc.morsecode.centari.data.FormStore;
 import inc.morsecode.web.model.form.FormElement;
 import inc.morsecode.web.model.form.WebForm;
 import org.springframework.stereotype.Component;
