@@ -2,7 +2,6 @@ package inc.morsecode.centari;
 
 import inc.morsecode.centari.data.FormStore;
 import inc.morsecode.web.resource.FileFormStore;
-import inc.morsecode.web.security.CsrfToken;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +9,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.ViewResolver;
@@ -43,26 +43,6 @@ public class Config extends WebMvcConfigurerAdapter {
 
     @Autowired
     public ViewResolver viewResolver;
-
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(csrfTokenAddingInterceptor());
-    }
-
-    @Bean
-    public HandlerInterceptor csrfTokenAddingInterceptor() {
-        return new HandlerInterceptorAdapter() {
-            @Override
-            public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView view) {
-                CsrfToken token = (CsrfToken) request.getAttribute(CsrfToken.class.getName());
-
-                if (token != null) {
-                    view.addObject("csrftoken", token);
-                }
-            }
-        };
-    }
-
     @Bean
     public FormStore formStore() {
         return formStore;

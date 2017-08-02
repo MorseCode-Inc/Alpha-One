@@ -30,6 +30,7 @@ public class JadeConfig {
             public ClassLoader getClassLoader() {
                return this.getClassLoader();
             }
+
         });
         templateLoader.setEncoding("UTF-8");
         templateLoader.setSuffix(".jade");
@@ -52,6 +53,5 @@ public class JadeConfig {
         viewResolver.setConfiguration(jadeConfiguration());
         return viewResolver;
     }
-
 
 }
