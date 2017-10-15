@@ -2,6 +2,10 @@ package inc.morsecode.centari;
 
 import inc.morsecode.centari.data.FormStore;
 import inc.morsecode.web.resource.FileFormStore;
+import org.apache.curator.RetryPolicy;
+import org.apache.curator.RetrySleeper;
+import org.apache.curator.framework.CuratorFramework;
+import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,5 +56,19 @@ public class Config extends WebMvcConfigurerAdapter {
     public void configureViewResolvers(ViewResolverRegistry registry) {
         registry.viewResolver(viewResolver);
     }
+
+    @Bean(name="zookeeper")
+    public CuratorFramework zookeeper() {
+
+        RetryPolicy retryPolicy= new RetryPolicy() {
+            @Override
+            public boolean allowRetry(int i, long l, RetrySleeper retrySleeper) {
+                return i < 5;
+            }
+        };
+        CuratorFramework zk= CuratorFrameworkFactory.newClient("zk11.hdfs,zk12.hdfs,zk13.hdfs", 3000, 9000, retryPolicy);
+        return zk;
+    }
+
 
 }

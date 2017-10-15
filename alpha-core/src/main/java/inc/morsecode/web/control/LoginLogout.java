@@ -23,10 +23,10 @@ public class LoginLogout {
 
     private static final Logger LOG= LoggerFactory.getLogger(LoginLogout.class);
 
-    @RequestMapping(method= RequestMethod.GET,
-            path= "/welcome-login")
-    public String welcome(Model model, HttpServletRequest httpReq, HttpServletResponse httpResp, HttpSession session, CsrfToken token) {
+    @RequestMapping(method= RequestMethod.GET, path= "/welcome-login")
+    public String welcome(Model model, HttpServletRequest httpReq, HttpServletResponse httpResp, CsrfToken token) {
         // this is the login form page
+        HttpSession session= httpReq.getSession();
         model.addAttribute("sessionid", session.getId());
 
         model.addAttribute("_csrf.token", token.getToken())
@@ -37,12 +37,18 @@ public class LoginLogout {
         LOG.info("set _csrf: "+ token.getToken());
         LOG.info("set _csrf: "+ token.getHeaderName());
 
+        session.setAttribute("_csrf.token", token.getToken());
+        session.setAttribute("_csrf.headerName", token.getHeaderName());
+        session.setAttribute("_csrf.parameterName", token.getParameterName());
 
         ExpiringSession s= sessions.getSession(session.getId());
         if (s == null) {
             s= sessions.createSession();
             s.setLastAccessedTime(System.currentTimeMillis());
             s.setMaxInactiveIntervalInSeconds(500);
+            s.setAttribute("_csrf.token", token.getToken());
+            s.setAttribute("_csrf.headerName", token.getHeaderName());
+            s.setAttribute("_csrf.parameterName", token.getParameterName());
         }
         sessions.save(s);
 
@@ -52,14 +58,11 @@ public class LoginLogout {
         return "welcome-login";
     }
 
-    /*
-    @RequestMapping(method= RequestMethod.POST,
-            path="/welcome-login")
+    @RequestMapping(method= RequestMethod.POST, path="/welcome-login")
     public String login(HttpServletRequest httpReq) {
         // this is the landing page on successful login.
         return "welcome";
     }
-    */
 
     @RequestMapping(path="/goodbye")
     public String goodbye(HttpServletRequest httpReq, HttpSession session) {
