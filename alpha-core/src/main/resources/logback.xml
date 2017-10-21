@@ -18,6 +18,8 @@
     <logger name="org.eclipse.jetty.util" level="info" additivity="false"> <appender-ref ref="STDOUT" /> </logger>
     <logger name="org.eclipse.jetty.io" level="info" additivity="false"> <appender-ref ref="STDOUT" /> </logger>
 
+    <logger name="org.apache.zookeeper" level="warn" additivity="false"> <appender-ref ref="STDOUT" /> </logger>
+
     <logger name="ch.qos.logback" level="warn" additivity="false"> <appender-ref ref="STDOUT" /> </logger>
     <logger name="org.hibernate" level="warn" additivity="false"> <appender-ref ref="STDOUT" /> </logger>
 

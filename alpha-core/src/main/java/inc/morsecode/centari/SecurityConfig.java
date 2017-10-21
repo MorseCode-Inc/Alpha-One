@@ -1,5 +1,6 @@
 package inc.morsecode.centari;
 
+import inc.morsecode.web.security.CsrfGrantingFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -40,15 +41,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                     .loginPage("/welcome-login")
                     .usernameParameter("username").passwordParameter("password")
+                    .failureForwardUrl("/welcome-invalid-login")
                     .successForwardUrl("/welcome")
                     .permitAll()
             .and()
                 .logout()
                     .logoutUrl("/goodbye")
                     .permitAll()
-            .and()
+                ;
+            //.and().csrf();
                 // .addFilterAfter(new CsrfGrantingFilter(), SessionManagementFilter.class)
-            .csrf();
+            //.and().csrf();
     }
 
 
