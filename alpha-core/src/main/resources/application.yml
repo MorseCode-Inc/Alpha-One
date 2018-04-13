@@ -9,5 +9,5 @@ logging:
 server:
     error:
         whitelabel:
-            enabled=false
+            enabled: false
 

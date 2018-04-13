@@ -1,4 +1,4 @@
-package inc.morsecode.util.zk;
+package inc.morsecode.zk;
 
 import java.io.*;
 

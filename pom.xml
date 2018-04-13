@@ -20,6 +20,9 @@
         <module>alpha-core</module>
         <module>json-lite</module>
         <module>jcoffeescript</module>
+        <module>kafka</module>
+        <module>data</module>
+        <module>thrustcurve</module>
     </modules>
 
     <properties>
@@ -31,17 +34,12 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.5.1</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                 </configuration>
             </plugin>
         </plugins>

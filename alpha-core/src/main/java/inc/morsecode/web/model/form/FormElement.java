@@ -1,6 +1,6 @@
 package inc.morsecode.web.model.form;
 
-import inc.morsecode.json.*;
+import inc.morsecode.json.TypedJsonArray;
 import inc.morsecode.spec.json.JsonStructure;
 
 import java.util.function.Consumer;

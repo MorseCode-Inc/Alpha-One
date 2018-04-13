@@ -1,6 +1,5 @@
 package inc.morsecode.centari;
 
-import inc.morsecode.web.security.CsrfGrantingFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,9 +8,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.configurers.CsrfConfigurer;
-import org.springframework.session.ExpiringSession;
-import org.springframework.session.MapSessionRepository;
-import org.springframework.session.SessionRepository;
 import org.springframework.session.config.annotation.web.http.EnableSpringHttpSession;
 import org.springframework.session.web.http.HeaderHttpSessionStrategy;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;

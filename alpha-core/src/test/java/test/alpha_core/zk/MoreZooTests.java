@@ -1,7 +1,7 @@
 package test.alpha_core.zk;
 
-import inc.morsecode.util.zk.JacksonEncoder;
-import inc.morsecode.util.zk.ZooUtils;
+import inc.morsecode.zk.JacksonEncoder;
+import inc.morsecode.zk.ZooUtils;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
 

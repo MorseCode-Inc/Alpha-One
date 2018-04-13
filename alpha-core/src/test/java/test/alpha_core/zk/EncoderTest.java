@@ -1,6 +1,6 @@
 package test.alpha_core.zk;
 
-import inc.morsecode.util.zk.SerializedEncoder;
+import inc.morsecode.zk.SerializedEncoder;
 
 import java.util.Arrays;
 

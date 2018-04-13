@@ -2,8 +2,6 @@ package inc.morsecode.centari;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.session.ExpiringSession;
-import org.springframework.session.MapSession;
-import org.springframework.session.MapSessionRepository;
 import org.springframework.session.SessionRepository;
 import org.springframework.session.web.http.SessionRepositoryFilter;
 

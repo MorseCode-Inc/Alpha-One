@@ -1,4 +1,4 @@
-package inc.morsecode.util.zk;
+package inc.morsecode.zk;
 
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.api.BackgroundCallback;

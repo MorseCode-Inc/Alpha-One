@@ -5,8 +5,6 @@ import java.util.ArrayList;
 //import com.domingosuarez.boot.autoconfigure.jade4j.JadeHelper;
 
 
-import java.util.ArrayList;
-
 /**
  * Created by morsecode on 7/23/2017.
  *

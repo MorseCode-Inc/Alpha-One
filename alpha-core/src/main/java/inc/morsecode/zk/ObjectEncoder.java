@@ -1,4 +1,4 @@
-package inc.morsecode.util.zk;
+package inc.morsecode.zk;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import inc.morsecode.json.JsonObject;
