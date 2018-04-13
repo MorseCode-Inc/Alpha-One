@@ -1,5 +1,0 @@
-
-@Compo
-public class ThrustcurveAPI {
-
-}
