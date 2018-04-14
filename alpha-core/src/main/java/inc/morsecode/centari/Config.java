@@ -1,7 +1,5 @@
 package inc.morsecode.centari;
 
-import inc.morsecode.centari.data.FormStore;
-import inc.morsecode.web.resource.FileFormStore;
 import org.apache.curator.RetryPolicy;
 import org.apache.curator.RetrySleeper;
 import org.apache.curator.framework.CuratorFramework;
@@ -9,13 +7,19 @@ import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.parsing.Location;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.resource.ResourceHttpRequestHandler;
+
+import java.util.Map;
 
 /**
  * Created by morsecode on 7/16/2017.
@@ -35,18 +39,35 @@ public class Config extends WebMvcConfigurerAdapter {
     private static final Logger LOG= LoggerFactory.getLogger(Config.class);
 
     @Autowired
-    private FileFormStore formStore;
+    ResourceHttpRequestHandler resourceHandler;
 
     @Autowired
-    public ViewResolver viewResolver;
-    @Bean
-    public FormStore formStore() {
-        return formStore;
-    }
+    private ViewResolver viewResolver;
+
+    @Autowired
+    private Routes.RoutesYml routes;
 
     @Override
     public void configureViewResolvers(ViewResolverRegistry registry) {
         registry.viewResolver(viewResolver);
+    }
+
+    @Override
+    public void addViewControllers(ViewControllerRegistry registry) {
+
+        registry.addViewController("/flight-records/");
+        //for (Routes.Route r : routes.get()){
+            //registry.addViewController(r.getPath()).setViewName(r.getView());
+        //}
+
+    }
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+
+        registry.addResourceHandler("/favicon.ico");
+
+
     }
 
     @Bean(name="zookeeper")

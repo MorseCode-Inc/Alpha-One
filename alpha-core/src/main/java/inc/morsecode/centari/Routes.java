@@ -2,56 +2,48 @@ package inc.morsecode.centari;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.BeansException;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.context.embedded.EmbeddedServletContainerInitializedEvent;
-import org.springframework.context.*;
-import org.springframework.stereotype.Component;
-import org.springframework.web.method.HandlerMethod;
-import org.springframework.web.servlet.handler.AbstractHandlerMethodMapping;
-import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
+import javax.annotation.PostConstruct;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.function.Consumer;
 
 
 /**
  * Created by morsecode on 7/16/2017.
  */
-@Component
-@EnableAutoConfiguration
-public class Discovery implements ApplicationContextInitializer, ApplicationContextAware, ApplicationListener<EmbeddedServletContainerInitializedEvent> {
+@Configuration
+@EnableConfigurationProperties
+@PropertySource("classpath:/routes.properties")
+@ConfigurationProperties(prefix="routes")
 
-    private Logger LOG= LoggerFactory.getLogger(Discovery.class);
+/**
+ *
+ */
+public class Routes {
 
-    @Override
-    public void initialize(ConfigurableApplicationContext context) {
-        LOG.info("INITIALIZE: "+ context);
-    }
-    
+    private Logger LOG= LoggerFactory.getLogger(Routes.class);
 
-    @Override
-    public void setApplicationContext(ApplicationContext context) throws BeansException {
-        LOG.info("SET CONTEXT: "+ context);
-        for (String key : context.getBeansOfType(AbstractHandlerMethodMapping.class).keySet()) {
-
-            Map<RequestMappingInfo, HandlerMethod> methods= context.getBean(key, AbstractHandlerMethodMapping.class).getHandlerMethods();
-
-            methods.entrySet().stream().forEach(
-                    new Consumer<Map.Entry<RequestMappingInfo, HandlerMethod>>() {
-                        @Override
-                        public void accept(Map.Entry<RequestMappingInfo, HandlerMethod> entry) {
-                            LOG.info("Found @RequestMapping Endpoint: "+ entry.getValue());
-                            // TODO: collect all of the exposed endpoints
-                        }
-                    }
-            );
-        }
-
+    @PostConstruct
+    public void init() {
+        System.out.println(this);
     }
 
-    @Override
-    public void onApplicationEvent(EmbeddedServletContainerInitializedEvent event) {
-        LOG.info("CONTAINER INITIALIZED: "+ event);
+    public static class RoutesYml {
+        private Map<String, String> routes= new HashMap<>();
+
+        public Map<String, String> getRoutes() { return routes; }
     }
+
+    @Bean
+    public RoutesYml getRoutes() {
+        // spring does some magic..
+        return new RoutesYml();
+    }
+
+
 }

@@ -17,12 +17,16 @@
     </parent>
 
     <modules>
-        <module>alpha-core</module>
         <module>json-lite</module>
         <module>jcoffeescript</module>
         <module>kafka</module>
-        <module>data</module>
         <module>thrustcurve</module>
+        <module>alpha-core</module>
+        <module>centari-common</module>
+        <module>centari-forms</module>
+        <module>centari-google</module>
+        <module>data</module>
+        <module>ncr-motors</module>
     </modules>
 
     <properties>

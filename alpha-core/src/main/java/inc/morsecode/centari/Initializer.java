@@ -13,7 +13,7 @@ import java.util.EnumSet;
 public class Initializer implements ServletContextListener {
 
     @Autowired
-    SessionRepository<ExpiringSession> sessions;
+    private SessionRepository<ExpiringSession> sessions;
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {

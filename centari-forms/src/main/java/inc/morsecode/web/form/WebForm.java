@@ -1,4 +1,4 @@
-package inc.morsecode.web.model.form;
+package inc.morsecode.web.form;
 
 import inc.morsecode.json.JsonObject;
 

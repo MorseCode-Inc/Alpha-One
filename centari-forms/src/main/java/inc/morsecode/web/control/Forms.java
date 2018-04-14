@@ -1,7 +1,7 @@
 package inc.morsecode.web.control;
 
-import inc.morsecode.web.model.form.FormElement;
-import inc.morsecode.web.model.form.WebForm;
+import inc.morsecode.web.form.FormElement;
+import inc.morsecode.web.form.WebForm;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;

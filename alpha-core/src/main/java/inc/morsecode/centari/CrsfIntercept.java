@@ -27,7 +27,9 @@ public class CrsfIntercept extends WebMvcConfigurerAdapter {
                 CsrfToken token = (CsrfToken) request.getAttribute(CsrfToken.class.getName());
 
                 if (token != null) {
-                    //view.addObject("csrftoken", token);
+                    view.addObject("csrftoken", token);
+                    view.addObject("_csrf_token", token);
+                    view.addObject("_csrf", token);
                 }
             }
         };

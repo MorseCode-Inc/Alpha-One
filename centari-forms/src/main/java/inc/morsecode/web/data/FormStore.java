@@ -1,7 +1,7 @@
-package inc.morsecode.centari.data;
+package inc.morsecode.web.data;
 
-import inc.morsecode.web.model.form.FormElement;
-import inc.morsecode.web.model.form.WebForm;
+import inc.morsecode.web.form.FormElement;
+import inc.morsecode.web.form.WebForm;
 
 import java.io.IOException;
 

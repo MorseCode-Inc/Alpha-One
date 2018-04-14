@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 public class CsrfGrantingFilter implements Filter {
+
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {}
 
@@ -21,6 +22,7 @@ public class CsrfGrantingFilter implements Filter {
             HttpServletResponse response = (HttpServletResponse) servletResponse;
             Cookie cookie = new Cookie("CSRF-TOKEN", token);
             cookie.setPath("/");
+            cookie.setDomain(servletRequest.getServerName());
             response.addCookie(cookie);
         }
         filterChain.doFilter(servletRequest, servletResponse);
