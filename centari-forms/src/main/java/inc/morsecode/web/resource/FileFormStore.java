@@ -39,15 +39,7 @@ public class FileFormStore implements FormStore {
         try {
             JsonStructure json= JsonParser.parse(new File(formDir, "form.json"));
 
-            Arrays.stream(formDir.listFiles(new FilenameFilter() {
-                @Override
-                public boolean accept(File dir, String name) {
-                    if ("form.json".equals(name)) {
-                        return false;
-                    }
-                    return name.endsWith(".json");
-                }
-            })).forEach( file -> {
+            Arrays.stream(formDir.listFiles((dir, filename) -> !"form.json".equals(filename) && filename.endsWith(".json"))).forEach( file -> {
                     try {
                         FormElement elem = readElement(name, file.getName().replaceAll(".json", ""));
                         form.add(elem);

@@ -4,3 +4,6 @@
 [submodule "jcoffeescript"]
 	path = jcoffeescript
 	url = git@github.com:MorseCode-Inc/jcoffeescript
+[submodule "thrustcurve"]
+	path = thrustcurve
+	url = git@github.com:ncrclub/thrustcurve
